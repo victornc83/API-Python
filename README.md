@@ -114,6 +114,23 @@ cd terraform
 ./configure_environment.sh
 ```
 
+Este script genera una serie de salidas:
+- Por un lado genera una serie de ficheros que son necesarios de mantener, pero que no deben subirse al repositorio, como son 
+  - `terraform`: ejecutable de terraform 
+  - `terraform.tfstate`: estado de los recursos desplegados con terraform  
+  - `.terraform.lock.hcl`: fichero de bloqueo de los recursos desplegados con terraform, para evitar problemas de dependencias.
+  - `resources/key.pem`: la clave para acceder a la instancia EC2.
+
+- Por otro lado está la salida del propio script, que genera las siguientes salidas:
+  - `jenkins_instance_id` = Identificador de la instancia EC2 levantada en la cuenta de AWS, e.g:`"i-03182e2534954fdf5"`
+  - `jenkins_instance_security_group_id` = Identificador del Security Group que usa la EC2 levantada en la cuenta de AWS, e.g:`"sg-0e00e629e32749ec5"`
+  - `jenkins_url` = URL del servidor de Jenkins desplegado. La contraseña de acceso se encuentra disponible en la guía de la práctica. e.g:`"http://112.23.18.67:8080"`
+  - `key_pair` = Clave privada para acceder a la instancia EC2 levantada por SSH.
+  - `public_ip` = Dirección IP de la instancia EC2 levantada en la cuenta de AWS, e.g:`"112.23.18.67"`
+  - `s3_bucket_production` = Bucket de S3 levantado en la cuenta de AWS, para persistir los artefactos del pipeline de production en Jenkins, e.g:`"es-unir-production-s3-XXXXX-artifacts"`
+  - `s3_bucket_staging` = Bucket de S3 levantado en la cuenta de AWS, para persistir los artefactos del pipeline de production en Jenkins, e.g:`"es-unir-production-s3-XXXXX-artifacts"`
+  - `ssh_connection` = Conexión ssh para acceder al servidor de Jenkins, e.g`"ssh -i resources/key.pem ec2-user@112.23.18.67"`
+
 Si se desea desplegar desde un terminal local, recordar que este script está pensado para ejecutar en un entorno de Linux y que desde local, habrá que configurar las credenciales temporales de la cuenta de Aws Credentials dentro del fichero `~/.aws./credentials` del home del usuario.
 ## Uso
 
