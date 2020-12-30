@@ -67,6 +67,7 @@ Directorios a tener en cuenta:
 ```bash
 npm install -g serverless
 ```
+***Nota: revisar la guía para instalar la correcta versión del serverless para evitar fallos con el login de Serverless Framework
 ## Despliegue con Serverless Framework
 
 De cara a simplificar el despliegue, simplemente habría que ejecutar
@@ -105,7 +106,7 @@ functions:
   serverless-rest-api-with-dynamodb-dev-delete: arn:aws:lambda:us-east-1:488110005556:function:serverless-rest-api-with-dynamodb-dev-delete
 ```
 
-## Despliegue infraestructura de Terraform para el Apartado BTerraform
+## Despliegue infraestructura de Terraform para el Apartado B
 
 En la instancia de Cloud9, simplemente se ha de ejecutar el script de `configure_enviroment.sh`, dentro del directorio de [terraform](https://registry.terraform.io/).
 Cuando se pregunte por la IP, indicar la del equipo desde se desea conectar. 
