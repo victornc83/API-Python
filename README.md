@@ -120,6 +120,35 @@ var.myip
 
   Enter a value: 57.123.221.88 # IP de ejemplo, sustituir por la personal!
 
+$ ./terraform apply plan
+
+...
+Apply complete! Resources: 8 added, 0 changed, 8 destroyed.
+
+The state of your infrastructure has been saved to the path
+below. This state is required to modify and destroy your
+infrastructure, so keep it safe. To inspect the complete state
+use the `terraform show` command.
+
+State path: terraform.tfstate
+
+Outputs:
+
+jenkins_instance_id = "i-03182e2534954fdf5"
+jenkins_instance_security_group_id = "sg-0e00e629e32749ec5"
+jenkins_url = "http://112.23.18.67:8080"
+key_pair = <<EOT
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpQIBAAKCAQEAsk5rieVA2zwpo86gAZGq37L4aRCC2YeHxZ4LxFqTJ1e+9pHB
+....
+S6Vm27ZFT3Rbbt1KRB64AlfLGEZ+hB07JVzz4RSQvZkUw3Whosk8qUQ=
+-----END RSA PRIVATE KEY-----
+
+EOT
+public_ip = "112.23.18.67"
+s3_bucket_production = "es-unir-production-s3-XXXXX-artifacts"
+s3_bucket_staging = "es-unir-production-s3-XXXXX-artifacts"
+ssh_connection = "ssh -i resources/key.pem ec2-user@112.23.18.67"
   ...
 ```
 
