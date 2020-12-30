@@ -134,3 +134,4 @@ terraform/plan
 terraform/resources/key.pem
 terraform/terraform.tfstate
 terraform/terraform
+terraform/terraform.tfstate.backup
