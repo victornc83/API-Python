@@ -129,8 +129,8 @@ dmypy.json
 .pyre/
 
 # Terraform 
-.terraform.lock.hcl
-plan
-resources/key.pem
-terraform
-terraform.tfstate
+terraform/.terraform.lock.hcl
+terraform/plan
+terraform/resources/key.pem
+terraform/terraform.tfstate
+terraform/terraform
