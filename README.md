@@ -140,7 +140,7 @@ Este script genera una serie de salidas:
   - `s3_bucket_staging` = Bucket de S3 levantado en la cuenta de AWS, para persistir los artefactos del pipeline de production en Jenkins, e.g:`"es-unir-production-s3-XXXXX-artifacts"`
   - `ssh_connection` = Conexión ssh para acceder al servidor de Jenkins, e.g`"ssh -i resources/key.pem ec2-user@112.23.18.67"`
 
-**Importante:** Si se desea desplegar desde un equipo local y no desde Cloud9, recordar que este script está pensado para ejecutar en un entorno de Linux y que desde local, habrá que configurar las credenciales temporales de la cuenta de AWS Educate dentro del fichero `~/.aws./credentials` del `home` del usuario.
+**Importante:** Si se desea desplegar desde un equipo local y no desde Cloud9 -recordar que este script está pensado para ejecutar en un entorno de Linux y que desde local-, hay que configurar las credenciales temporales de la cuenta de AWS Educate dentro del fichero `~/.aws./credentials` del `home` del usuario.
 ## Uso
 
 Se puede crear, lista, coger, actualizar y borrar una tarea, ejecutando los siguientes comandos `curl` desde la línea de comandos del terminal:
