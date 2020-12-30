@@ -4,7 +4,7 @@
 # Download terraform 
 wget https://releases.hashicorp.com/terraform/0.14.3/terraform_0.14.3_linux_amd64.zip
 # Unzip terraform
-unzip terraform
+unzip terraform_0.14.3_linux_amd64.zip
 # remove terraform zip
 rm -f terraform_0.14.3_linux_amd64.zip
 

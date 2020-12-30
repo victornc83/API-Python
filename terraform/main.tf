@@ -2,8 +2,6 @@
 # t3.micro node with an AWS Tag naming it "HelloWorld"
 provider "aws" {
   region  = "us-east-1"
-  profile = "unir"
-
 }
 
 
@@ -142,7 +140,7 @@ resource "null_resource" "super_secret" {
   # }
 
   triggers = {
-    always_run = "${timestamp()}"
+    always_run = timestamp()
   }
 
 
@@ -160,7 +158,7 @@ resource "null_resource" "create_pem" {
   # }
 
   triggers = {
-    always_run = "${timestamp()}"
+    always_run = timestamp()
   }
 
 
