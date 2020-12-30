@@ -2,6 +2,7 @@
 # t3.micro node with an AWS Tag naming it "HelloWorld"
 provider "aws" {
   region  = "us-east-1"
+  profile = "unir"
 }
 
 
@@ -94,7 +95,6 @@ resource "aws_instance" "jenkins" {
   }
 }
 
-
 resource "aws_s3_bucket" "s3_bucket_staging" {
   bucket = "es-unir-staging-s3-${random_integer.server.result}-artifacts"
   acl    = "private"
@@ -166,5 +166,5 @@ resource "null_resource" "create_pem" {
     command = "resources/get-ssh-key.sh"
   }
 
-  depends_on = [ null_resource.super_secret ]
+  depends_on = [null_resource.super_secret]
 }
