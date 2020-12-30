@@ -41,6 +41,7 @@ pipeline {
             steps{
                 dir("todo-list-serverless/test") {
                     // Unitary testing -> unittest or pytest
+                    sh ''
                     // Coverage report -> coverage
                     echo 'Execute something like coverage run -m & coverage report -m'
                 }
@@ -51,12 +52,13 @@ pipeline {
                 dir("todo-list-serverless") {
                     // Build release
                     echo 'Maybe something like sam build?'
+                    sh "sam build ..."
                     // Package release and persist in s3 bucket
                     sh "sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket ${env.COUNTRY}-${env.TEAM}-${env.ENVIRONMENT}-${env.SERVICE}-${env.RAND_ID}-artifacts" 
                 }
             }
         }
-        stage('Build') {
+        stage('Integration Test on local') {
             steps{
                 dir("todo-list-serverless/test") {
                     // Unittest or pytest                   
