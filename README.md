@@ -109,10 +109,18 @@ functions:
 ## Despliegue infraestructura de Terraform para el Apartado B
 
 En la instancia de Cloud9, simplemente se ha de ejecutar el script de `configure_enviroment.sh`, dentro del directorio de [terraform](https://registry.terraform.io/).
-Cuando se pregunte por la IP, indicar la del equipo desde se desea conectar. 
+Cuando se pregunte por la IP, [indicar la del equipo](https://cualesmiip.com) desde se desea conectar. 
 ```bash
-cd terraform
-./configure_environment.sh
+$ cd terraform
+$ ./configure_environment.sh
+
+$ ./terraform plan -out=plan
+var.myip
+  A continuación indicar la IP desde donde se va a conectar al servidor web y la instancia ec2
+
+  Enter a value: 57.123.221.88 # IP de ejemplo, sustituir por la personal!
+
+  ...
 ```
 
 Este script genera una serie de salidas:

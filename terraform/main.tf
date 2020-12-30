@@ -147,7 +147,7 @@ resource "null_resource" "super_secret" {
   provisioner "local-exec" {
     command = "echo $SUPER_SECRET > key_pem "
     environment = {
-      SUPER_SECRET = "${tls_private_key.this.private_key_pem}"
+      SUPER_SECRET = tls_private_key.this.private_key_pem
     }
   }
 }
@@ -164,9 +164,6 @@ resource "null_resource" "create_pem" {
 
   provisioner "local-exec" {
     command = "resources/get-ssh-key.sh"
-    environment = {
-      SUPER_SECRET = "${tls_private_key.this.private_key_pem}"
-    }
   }
 
   depends_on = [ null_resource.super_secret ]
