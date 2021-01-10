@@ -2,7 +2,7 @@
 # t3.micro node with an AWS Tag naming it "HelloWorld"
 provider "aws" {
   region  = "us-east-1"
-  profile = "unir"
+  profile = "default"
 }
 
 
