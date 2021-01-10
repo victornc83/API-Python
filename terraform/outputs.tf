@@ -7,7 +7,7 @@ output "s3_bucket_production" {
 }
 
 output "s3_bucket_staging" {
-  value = aws_s3_bucket.s3_bucket_production.id
+  value = aws_s3_bucket.s3_bucket_staging.id
 }
 
 output "jenkins_instance_id" {
