@@ -1,4 +1,4 @@
-# Pruebas unitarias en ficheros independientes
+# Pruebas unitarias en ficheros independientes de los métodos de acceso a la base de datos.
 
 En este directorio se disponibilizan una serie de métodos de acceso a la base de datos de DynamoDB de manera independiente y unas pruebas unitarias asociadas.
 Dichas pruebas unitarias ejecutan contra la librería moto y contra una imagen de docker de DynamoDB levantada en un contexto local.

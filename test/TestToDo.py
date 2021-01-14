@@ -90,16 +90,31 @@ class TestDatabaseFunctions(unittest.TestCase):
             get_todo(
                 self.uuid,
                 self.dynamodb)['Item']['text'])
+    
+    def test_list_todo(self):
+        from ToDoPutItem import put_todo
+        from ToDoListItems import list_todo
+
+        # Testing file functions
+        # Table local
+        put_todo(self.text, self.uuid)
+        self.assertEqual(200, list_todo(self.uuid)[
+                         'ResponseMetadata']['HTTPStatusCode'])
+
+        # Table mock
+        put_todo(self.text, self.uuid, self.dynamodb)
+        self.assertEqual(200, list_todo(self.uuid, self.dynamodb)[
+                         'ResponseMetadata']['HTTPStatusCode'])
 
        
-    def test_get_todo_error(self):
-        from ToDoGetItem import get_todo
+    def test_list_todo_error(self):
+        from ToDoListItems import list_todo
         # Testing file functions
         # Table local
-        self.assertRaises(TypeError, get_todo(""))
+        self.assertRaises(TypeError, list_todo(""))
         # Testing file functions
         # Table local
-        self.assertRaises(TypeError, get_todo("", self.dynamodb))
+        self.assertRaises(TypeError, list_todo("", self.dynamodb))
 
 
     def test_update_todo(self):
