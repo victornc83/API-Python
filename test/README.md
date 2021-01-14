@@ -21,9 +21,6 @@ docker run -p 8000:8000 amazon/dynamodb-local
 Pasos para ejecutar las pruebas
 ```
 test$ coverage run -m TestToDo
-.One or more parameter values are not valid. The AttributeValue for a key attribute cannot contain an empty string value. Key: id
-..One or more parameter values are not valid. The AttributeValue for a key attribute cannot contain an empty string value. Key: id
-..One or more parameter values are not valid. The AttributeValue for a key attribute cannot contain an empty string value. Key: id
 One or more parameter values are not valid. The AttributeValue for a key attribute cannot contain an empty string value. Key: id
 One or more parameter values were invalid: An AttributeValue may not contain an empty string
 One or more parameter values were invalid: An AttributeValue may not contain an empty string
@@ -33,19 +30,19 @@ One or more parameter values were invalid: An AttributeValue may not contain an 
 One or more parameter values were invalid: An AttributeValue may not contain an empty string
 .
 ----------------------------------------------------------------------
-Ran 10 tests in 1.010s
+Ran 11 tests in 1.947s
 
 OK
 
 test$ coverage report -m
 Name                 Stmts   Miss  Cover   Missing
 --------------------------------------------------
-TestToDo.py            101      0   100%
+TestToDo.py            108      0   100%
 ToDoCreateTable.py      11      2    82%   32, 38
 ToDoDeleteItem.py       17      1    94%   32
-ToDoGetItem.py          17      1    94%   31
+ToDoGetItem.py          17      3    82%   18-19, 31
+ToDoListItems.py        17      6    65%   16-17, 23-25, 29
 ToDoPutItem.py          19      1    95%   38
 ToDoUpdateItem.py       19      1    95%   48
 --------------------------------------------------
-TOTAL                  184      6    97%
-```
+TOTAL                  208     14    93%
