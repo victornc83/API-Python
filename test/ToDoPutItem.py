@@ -1,7 +1,7 @@
-from pprint import pprint
 import boto3
 from botocore.exceptions import ClientError
 import time
+
 
 def put_todo(text, id, dynamodb=None):
     if not dynamodb:
@@ -13,14 +13,14 @@ def put_todo(text, id, dynamodb=None):
 
     try:
         response = table.put_item(
-        Item = {
-            'id': id,
-            'text': text,
-            'checked': False,
-            'createdAt': timestamp,
-            'updatedAt': timestamp,
-        })
-    
+            Item={
+                'id': id,
+                'text': text,
+                'checked': False,
+                'createdAt': timestamp,
+                'updatedAt': timestamp,
+            })
+
     except ClientError as e:
         print(e.response['Error']['Message'])
     else:
@@ -28,8 +28,11 @@ def put_todo(text, id, dynamodb=None):
 
 
 def main():
-    todo = put_todo("The Big New todo task", "123e4567-e89b-12d3-a456-426614174000")
+    todo = put_todo("The Big New todo task",
+                    "123e4567-e89b-12d3-a456-426614174000")
     if todo:
-        return todo    
+        return todo
+
+
 if __name__ == '__main__':
     main()
