@@ -53,5 +53,5 @@ El alumno deberá de incluir en este directorio un nuevo fichero de pruebas unit
 
 El fichero de pruebas se denominará:
 ```
-TestTodoClass.py
+TestToDoClass.py
 ```
