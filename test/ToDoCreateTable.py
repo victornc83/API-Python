@@ -1,5 +1,6 @@
 import boto3
 
+
 def create_todo_table(dynamodb=None):
     if not dynamodb:
         dynamodb = boto3.resource(

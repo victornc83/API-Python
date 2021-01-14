@@ -1,4 +1,3 @@
-from pprint import pprint
 import boto3
 from botocore.exceptions import ClientError
 import time
@@ -37,9 +36,13 @@ def update_todo(text, id, checked, dynamodb=None):
 
 
 def main():
-    todo = update_todo("Aprender DevOps y Cloud en la UNIR", "123e4567-e89b-12d3-a456-426614174000","false")
+    todo = update_todo(
+        "Aprender DevOps y Cloud en la UNIR",
+        "123e4567-e89b-12d3-a456-426614174000",
+        "false")
     if todo:
         return todo
+
 
 if __name__ == '__main__':
     main()

@@ -65,7 +65,7 @@ Directorios a tener en cuenta:
 ## Configuración
 
 ```bash
-npm install -g serverless
+npm install -g serverless@1.75
 ```
 **Importante:** revisar la guía para instalar la correcta versión de serverless para evitar fallos con el login de Serverless Framework
 ## Despliegue con Serverless Framework
