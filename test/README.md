@@ -49,7 +49,7 @@ TOTAL                  208     14    93%
 ```
 
 # TODO
-El alumno deberá de incluir en este directorio un nuevo fichero de pruebas unitarias para la clase que se especifica desarrollar, usando como base las funciones python aquí desarrolladas y las pruebas que se ofrecen a modo de ejemplo. El esqueleto de la clase se encuentra disponible en [../todos/todoTable.py](todos/todoTable.py)
+El alumno deberá de incluir en este directorio un nuevo fichero de pruebas unitarias para la clase que se especifica desarrollar, usando como base las funciones python aquí desarrolladas y las pruebas que se ofrecen a modo de ejemplo. El esqueleto de la clase se encuentra disponible en [todos/todoTable.py](../todos/todoTable.py)
 
 El fichero de pruebas se denominará:
 ```
