@@ -20,7 +20,7 @@ def list_todo(id, dynamodb=None):
 
 
 def main():
-    todo = get_todo("123e4567-e89b-12d3-a456-426614174000")
+    todo = list_todo("123e4567-e89b-12d3-a456-426614174000")
     if todo:
         return todo
 
