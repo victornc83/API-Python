@@ -19,11 +19,17 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
-    - Effect: "Allow"
+    - Effect: Allow
       Action:
-        - "translate:TranslateText"
-        - "comprehend:DetectDominantLanguage"
+        - translate:TranslateText
+        - comprehend:DetectDominantLanguage
       Resource: "*"
+    - Effect: Allow
+      Action:
+        - logs:CreateLogGroup
+        - logs:CreateLogStream
+        - logs:PutLogEvents
+      Resource: "arn:aws:logs:*:*:*"
 
 functions:
   create:

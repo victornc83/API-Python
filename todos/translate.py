@@ -1,25 +1,41 @@
 import os
+import sys
 import json
+import logging
 
 from todos import decimalencoder
 import boto3
 dynamodb = boto3.resource('dynamodb')
 
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
 def translate(event, context):
-    table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
+    logger.info(event)
     
-    result = table.get_item(
-        Key={
-            'id': event['pathParameters']['id']
-        }
-    )
-    
-    translate = boto3.client(service_name='translate')
-    translated_text = translate.translate_text(Text=result["Item"]['text'], SourceLanguageCode="auto", TargetLanguageCode=event['pathParameters']['lang'])
+    try:
+        table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
+        result = table.get_item(
+            Key={
+                'id': event['pathParameters']['id']
+            }
+        )
+        logger.info(result)
+    except Exception as e:
+        logger.error(e)
+        raise Exception("[ErrorMessage]: " + str(e))   
+        
+    try:
+        translate = boto3.client(service_name='translate', region_name='us-east-1', use_ssl=True)
+        translated_text = translate.translate_text(Text=result["Item"]['text'], SourceLanguageCode="auto", TargetLanguageCode=event['pathParameters']['lang'])
+        logger.info(translated_text)
+    except Exception as e:
+        logger.error(e)
+        raise Exception("[ErrorMessage]: " + str(e))
     
     item = {
         'id': result["Item"]["id"],
-        'text': translated_text,
+        'text': translated_text["TranslatedText"],
         'checked': result["Item"]["checked"],
         'createdAt': result["Item"]["createdAt"],
         'updatedAt': result["Item"]["updatedAt"]
