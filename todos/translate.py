@@ -33,17 +33,11 @@ def translate(event, context):
         logger.error(e)
         raise Exception("[ErrorMessage]: " + str(e))
     
-    item = {
-        'id': result["Item"]["id"],
-        'text': translated_text["TranslatedText"],
-        'checked': result["Item"]["checked"],
-        'createdAt': result["Item"]["createdAt"],
-        'updatedAt': result["Item"]["updatedAt"]
-    }
+    result["Item"]["text"] = translated_text["TranslatedText"]
     
     response = {
         "statusCode": 200,
-        "body": json.dumps(item)
+        "body": json.dumps(result["Item"])
     }
     
     return response
